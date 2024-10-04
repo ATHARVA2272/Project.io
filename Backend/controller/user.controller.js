@@ -117,7 +117,7 @@ export const allUsers = async (req, res) => {
 export const getUserById = async (req, res) => {
   try {
     // Find the user by the ID extracted from the token
-    const user = await User.findById(req.user._id);
+    const user = await User.findById(req.params.id);
 
     if (!user) {
       return res.status(404).json({ error: 'User not found' });
