@@ -30,7 +30,7 @@ function Signup() {
     };
   
     try {
-      const response = await axios.post("http://localhost:4000/api/user/signup", userInfo);
+      const response = await axios.post("https://project-io-gnaf.onrender.com/api/user/signup", userInfo);
       console.log(response.data);
       if (response.data) {
         toast.success("Signed up successfully");

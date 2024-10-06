@@ -9,7 +9,7 @@ const PastProjectsModal = ({ isOpen, onClose }) => {
   const fetchLeaderInfo = async (leaderId) => {
     if (leaderId && !leaders[leaderId]) { // Fetch only if not already fetched
       try {
-        const response = await axios.get(`http://localhost:4000/api/user/${leaderId}`);
+        const response = await axios.get(`https://project-io-gnaf.onrender.com/api/user/${leaderId}`);
         setLeaders(prevLeaders => ({
           ...prevLeaders,
           [leaderId]: response.data,
@@ -23,7 +23,7 @@ const PastProjectsModal = ({ isOpen, onClose }) => {
   useEffect(() => {
     const fetchCompletedProjects = async () => {
       try {
-        const response = await axios.get('http://localhost:4000/api/project/completed');
+        const response = await axios.get('https://project-io-gnaf.onrender.com/api/project/completed');
         const filteredProjects = response.data.filter(project => project.leader);
         setCompletedProjects(filteredProjects);
         filteredProjects.forEach(project => {
@@ -53,7 +53,7 @@ const PastProjectsModal = ({ isOpen, onClose }) => {
       }
   
       try {
-        await axios.post('http://localhost:4000/api/project/send-email', {
+        await axios.post('https://project-io-gnaf.onrender.com/api/project/send-email', {
           leaderEmail: email, // Pass the leader's email
           subject,
           message,

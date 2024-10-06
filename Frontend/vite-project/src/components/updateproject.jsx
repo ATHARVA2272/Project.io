@@ -45,7 +45,7 @@ function UpdateProjectModal({ isOpen, onClose, project, refreshProjects }) {
     };
 
     try {
-      await axios.put(`http://localhost:4000/api/project/${pid}`, projectData);
+      await axios.put(`https://project-io-gnaf.onrender.com/api/project/${pid}`, projectData);
       toast.success("Project updated successfully");
       onClose(); // Close modal after successful update
       refreshProjects(); // Refresh the project list after updating

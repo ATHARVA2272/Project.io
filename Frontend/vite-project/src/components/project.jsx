@@ -26,7 +26,7 @@ function AddProjectModal({ isOpen, onClose }) {
     };
 
     try {
-      await axios.post("http://localhost:4000/api/project/pr", projectData);
+      await axios.post("https://project-io-gnaf.onrender.com/api/project/pr", projectData);
       toast.success("Project added successfully");
       onClose();
     } catch (error) {

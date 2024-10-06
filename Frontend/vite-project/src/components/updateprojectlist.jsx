@@ -20,7 +20,7 @@ const LeaderProjects = () => {
     }
 
     try {
-      const response = await axios.get(`http://localhost:4000/api/project/leader/${leaderId}`);
+      const response = await axios.get(`https://project-io-gnaf.onrender.com/api/project/leader/${leaderId}`);
       setProjects(response.data); // Set the projects in state
     } catch (error) {
       console.error('Error fetching leader projects:', error);
@@ -47,7 +47,7 @@ const LeaderProjects = () => {
   // Function to delete a project
   const deleteProject = async (projectId) => {
     try {
-      await axios.delete(`http://localhost:4000/api/project/${projectId}`);
+      await axios.delete(`https://project-io-gnaf.onrender.com/api/project/${projectId}`);
       toast.success('Project deleted successfully');
       fetchLeaderProjects(); // Refresh the project list after deleting
     } catch (error) {

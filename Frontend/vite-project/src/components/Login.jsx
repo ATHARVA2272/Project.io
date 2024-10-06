@@ -18,7 +18,7 @@ function Login() {
       password: data.password,
     };
     await axios
-      .post("http://localhost:4000/api/user/login", userInfo)
+      .post("https://project-io-gnaf.onrender.com/api/user/login", userInfo)
       .then((res) => {
         console.log(res.data);
         if (res.data) {

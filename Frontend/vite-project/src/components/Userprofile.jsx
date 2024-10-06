@@ -23,7 +23,7 @@ function Userprofile() {
       }
 
       try {
-        const response = await axios.get(`http://localhost:4000/api/user/${userId}`);
+        const response = await axios.get(`https://project-io-gnaf.onrender.com/api/user/${userId}`);
         const userData =  response.data;
         console.log("Fetched User Data:", userData);
         setUser(userData);

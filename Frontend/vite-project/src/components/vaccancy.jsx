@@ -10,7 +10,7 @@ const VacancyModal = ({ isOpen, onClose }) => {
   // Function to fetch project details
   const fetchProjects = async () => {
     try {
-      const response = await axios.get('http://localhost:4000/api/project/available-projects');
+      const response = await axios.get('https://project-io-gnaf.onrender.com/api/project/available-projects');
       // Filter out projects where the user is the leader
       const filteredProjects = response.data.filter(project => project.leader !== userId);
       setProjects(filteredProjects);
@@ -28,7 +28,7 @@ const VacancyModal = ({ isOpen, onClose }) => {
   const fetchLeaderInfo = async (leaderId) => {
     if (leaderId && !leaders[leaderId]) { // Fetch only if not already fetched
       try {
-        const response = await axios.get(`http://localhost:4000/api/user/${leaderId}`);
+        const response = await axios.get(`https://project-io-gnaf.onrender.com/api/user/${leaderId}`);
         setLeaders(prevLeaders => ({
           ...prevLeaders,
           [leaderId]: response.data,
