@@ -37,7 +37,7 @@ function Signup() {
         document.getElementById("my_modal_3").close();
         setTimeout(() => {
           navigate("/User"); 
-          localStorage.setItem("Users", JSON.stringify(response.data.t));
+          localStorage.setItem("userID",response.data.userId);
         }, 1000);
       }
     } catch (error) {

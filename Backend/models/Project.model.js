@@ -15,12 +15,12 @@ const projectSchema = new mongoose.Schema({
     ref: 'User',
     required: true,
   },
-  teamMembers: [
-    {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: 'User',
-    },
-  ],
+  // teamMembers: [
+  //   {
+  //     type: mongoose.Schema.Types.ObjectId,
+  //     ref: 'User',
+  //   },
+  // ],
   requiredSkills: {
     type: [String], // Array of skills required for the project
     required: true,
@@ -42,4 +42,5 @@ const projectSchema = new mongoose.Schema({
   },
 });
 
-module.exports = mongoose.model('Project', projectSchema);
+const Project = mongoose.model('Project', projectSchema);
+export default Project;

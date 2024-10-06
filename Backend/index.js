@@ -5,6 +5,7 @@ import cors from "cors";
 import cookieParser from "cookie-parser";
 
 import userRoute from "./routes/user.route.js";
+import projectRoute from "./routes/project.route.js";
 
 
 dotenv.config();
@@ -31,6 +32,7 @@ try {
 
 //routes
 app.use("/api/user", userRoute);
+app.use("/api/project",projectRoute);
 
 app.listen(PORT, () => {
     console.log(`Server is Running on port ${PORT}`);

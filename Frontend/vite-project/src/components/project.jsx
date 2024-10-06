@@ -13,9 +13,9 @@ function AddProjectModal({ isOpen, onClose }) {
   const [leaderId, setLeaderId] = useState('');
 
   useEffect(() => {
-    const user = JSON.parse(localStorage.getItem('Users'));
-    if (user && user._id) {
-      setLeaderId(user._id);
+    const user =localStorage.getItem('userID');
+    if (user ) {
+      setLeaderId(user);
     }
   }, []);
 
@@ -26,7 +26,7 @@ function AddProjectModal({ isOpen, onClose }) {
     };
 
     try {
-      await axios.post("http://localhost:4000/api/project", projectData);
+      await axios.post("http://localhost:4000/api/project/pr", projectData);
       toast.success("Project added successfully");
       onClose();
     } catch (error) {

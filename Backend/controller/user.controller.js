@@ -42,12 +42,7 @@ export const signup = async (req, res) => {
     // Respond with the newly created user
     res.status(201).json({
       message: "User created successfully",
-      user: {
-        _id: newUser._id,
-        fullName: newUser.fullName,  // Ensure consistency with property names
-        email: newUser.email,
-
-      },
+      userId: newUser._id,
     });
   } catch (error) {
     console.error(error);  // Use console.error for error logging
@@ -137,4 +132,22 @@ export const getUserById = async (req, res) => {
   // } catch (error) {
   //   console.log("Error in allUsers Controller: " + error);
   // }
+};
+
+
+export const getAllUsers = async (req, res) => {
+  try {
+    // Retrieve all users from the database
+    const users = await User.find(); // Optionally, you can use .populate() if you need to fetch related data
+
+    // Check if users exist
+    if (!users || users.length === 0) {
+      return res.status(404).json({ error: 'No users found' });
+    }
+
+    res.status(200).json(users);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Internal server error' });
+  }
 };
